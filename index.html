@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo Keeper</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+  </head>
+  <body>
+    <section class="container animate__animated animate__fadeInDown">
+      <small>Enter ToDo Here:</small>
+      <div class="addView">
+        <input type="text" name="todo" id="todoInput" />
+        <button id="addBtn" onclick="addTodo()">
+          <span class="material-symbols-outlined addIcon"> add </span>
+        </button>
+      </div>
+      <hr />
+      <div class="showView" id="todoShowView">
+        <div class="noTodoView" id="noTodoView">
+          <img src="noTodoImage.png" alt="" srcset="" />
+          <p>Add Task In Your Todo List Now!</p>
+        </div>
+      </div>
+      <div class="clearSec">
+        <p id="pendingList">You Have 0 Pending Tasks</p>
+        <button class="clearTodo" id="clearTodo" onclick="todoClear()">
+          Clear List
+        </button>
+      </div>
+    </section>
+    <script src="script.js"></script>
+  </body>
+</html>
