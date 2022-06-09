@@ -124,3 +124,32 @@ small {
   font-weight: 500;
   font-size: 12.5px;
 }
+@media only screen and (max-width: 600px) {
+  .container {
+    margin-top: 15vh;
+    width: 75%;
+  }
+  #todoInput {
+    font-size: 14px;
+    padding: 10px;
+  }
+  #addBtn {
+    font-size: 10px;
+    padding: 5px 5px 6px 5px;
+  }
+  .noTodoView p {
+    font-size: 12px;
+  }
+  #pendingList {
+    font-size: 10px;
+  }
+  .clearSec {
+    margin: 5px 0px;
+  }
+  .clearTodo {
+    font-size: 11px;
+  }
+  .deleteBtn {
+    font-size: 20px !important;
+  }
+}
