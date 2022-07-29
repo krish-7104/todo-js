@@ -16,28 +16,33 @@
     />
   </head>
   <body>
-    <section class="container animate__animated animate__fadeInDown">
-      <small>Enter ToDo Here:</small>
-      <div class="addView">
-        <input type="text" name="todo" id="todoInput" />
-        <button id="addBtn" onclick="addTodo()">
-          <span class="material-symbols-outlined addIcon"> add </span>
-        </button>
-      </div>
-      <hr />
-      <div class="showView" id="todoShowView">
-        <div class="noTodoView" id="noTodoView">
-          <img src="noTodoImage.png" alt="" srcset="" />
-          <p>Add Task In Your Todo List Now!</p>
+    <section class="container">
+      <div class="card animate__animated animate__fadeIn">
+        <br />
+        <h1>TODO LIST 🚀</h1>
+        <br />
+        <div class="addTodo">
+          <input
+            type="text"
+            placeholder="Enter Todo Here"
+            name="todo"
+            id="todoInput"
+          />
+          <button class="addTodo" id="addTodo" onClick="setValue()">
+            <span class="material-symbols-outlined addBtn">add</span>
+          </button>
+        </div>
+        <div class="displayTodo" id="displayTodo">
+          <ol>
+            <li>Add Todo Now!!</li>
+          </ol>
+        </div>
+        <div class="clearAll" id="clearAll">
+          <button onclick="clearNotes()">Clear All Todos</button>
         </div>
       </div>
-      <div class="clearSec">
-        <p id="pendingList">You Have 0 Pending Tasks</p>
-        <button class="clearTodo" id="clearTodo" onclick="todoClear()">
-          Clear List
-        </button>
-      </div>
     </section>
+
     <script src="script.js"></script>
   </body>
 </html>

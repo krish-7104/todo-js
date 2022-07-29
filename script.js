@@ -1,77 +1,66 @@
-"use strict";
-let todoArray = [];
-let todoStr = localStorage.getItem("todoList");
-todoArray = JSON.parse(todoStr);
-showTodo();
-
-document
-  .getElementById("todoInput")
-  .addEventListener("keypress", function (event) {
-    if (event.key === "Enter") {
-      event.preventDefault();
-      document.getElementById("addBtn").click();
-    }
+// "use strict";
+showNotes();
+var todoArray = [];
+function setValue() {
+  todoTitle = document.getElementById("todoInput").value;
+  if (localStorage.getItem("todoJson") == null) {
+    todoArray.push(todoTitle);
+    localStorage.setItem("todoJson", JSON.stringify(todoArray));
+  } else {
+    todoArrayStr = localStorage.getItem("todoJson");
+    todoArray = JSON.parse(todoArrayStr);
+    todoArray.push(todoTitle);
+    localStorage.setItem("todoJson", JSON.stringify(todoArray));
+  }
+  document.getElementById("todoInput").value = "";
+  showNotes();
+}
+function showNotes() {
+  let todo = localStorage.getItem("todoJson");
+  if (todo == null) {
+    todoArray = [];
+  } else {
+    todoArray = JSON.parse(todo);
+  }
+  let html = `<ol class="animate__animated animate__fadeIn">`;
+  todoArray.forEach(function (element, index) {
+    html += `<li >
+    ${element}
+    <span class="material-symbols-outlined deleteBtn" onclick = "deleteTodo(this.id)" id="${index}">clear</span>
+  </li>`;
   });
-
-function showPending() {
-  let show = document.getElementById("pendingList");
-  show.innerHTML = `You Have ${todoArray.length} Pending Tasks`;
+  html += "</ol>";
+  let todoElm = document.getElementById("displayTodo");
+  if (todoArray.length != 0) {
+    todoElm.innerHTML = html;
+  }
 }
 
-function showTodo(flag) {
-  if (flag == 1 && todoArray.length == 0) {
+function deleteTodo(index) {
+  console.log(index);
+  let todo = localStorage.getItem("todoJson");
+  if (todo == null) {
+    todoArray = [];
+  } else {
+    todoArray = JSON.parse(todo);
+  }
+  if (index == 0) {
+    todoArray = [];
     document.getElementById(
-      "todoShowView"
-    ).innerHTML = `<div class="noTodoView" id="noTodoView">
-      <img src="noTodoImage.png" alt="" srcset="" />
-      <p>Add Task In Your Todo List Now!</p>
-      </div>`;
+      "displayTodo"
+    ).innerHTML = `<ol class="animate__animated animate__fadeIn"<li>Add Todo Now!!</li></ol>`;
   } else {
-    let todoStr = localStorage.getItem("todoList");
-    if (todoStr === null || todoArray.length == 0) {
-      todoArray = [];
-      document.getElementById(
-        "todoShowView"
-      ).innerHTML = `<div class="noTodoView" id="noTodoView">
-        <img src="noTodoImage.png" alt="" srcset="" />
-        <p>Add Task In Your Todo List Now!</p>
-        </div>`;
-    } else {
-      todoArray = JSON.parse(todoStr);
-      let html = "";
-      todoArray.forEach((element, index) => {
-        html += `<div class="card">
-          <p class="todoValue" id="todoValue${index}">${element}</p>
-          <button class="deleteBtn Todobtns" id="delete${index}" onclick="deleteTodoBtn(this.id)">
-            <span class="material-symbols-outlined todoIcons" > delete </span>
-          </button>
-        </div>`;
-      });
-      document.getElementById("todoShowView").innerHTML = html;
-    }
+    todoArray.splice(index, 1);
   }
-  showPending();
+  localStorage.setItem("todoJson", JSON.stringify(todoArray));
+  showNotes();
 }
-function addTodo() {
-  let inputTodo = document.getElementById("todoInput").value;
-  if (inputTodo != "") {
-    todoArray.push(inputTodo);
-    localStorage.setItem("todoList", JSON.stringify(todoArray));
-    showTodo();
-    inputTodo = document.getElementById("todoInput").value = "";
-  } else {
-    console.log("Kuch To Likh Do Yaar");
-  }
-}
-function deleteTodoBtn(id) {
-  let onlyId = id.slice(6);
-  todoArray.splice(onlyId, 1);
-  localStorage.setItem("todoList", JSON.stringify(todoArray));
-  showTodo(1);
-}
-function todoClear() {
-  if (confirm("Are You Sure, You Want To Clear All Todos?")) {
-    localStorage.clear("todoList");
-    showTodo(1);
+
+function clearNotes() {
+  if (confirm("Do You Want To Clear All Notes?")) {
+    localStorage.clear();
+    document.getElementById(
+      "displayTodo"
+    ).innerHTML = `<ol class="animate__animated animate__fadeIn"><li>Add Todo Now!!</li></ol>`;
   }
 }

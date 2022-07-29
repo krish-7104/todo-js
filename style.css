@@ -1,155 +1,120 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
 * {
-  padding: 0px;
-  margin: 0px;
+  font-family: "Montserrat", sans-serif;
+  padding: 0;
+  margin: 0;
   box-sizing: border-box;
 }
-:root {
-  --primary-color: whitesmoke;
-  --secondary-color: #004e64;
-}
-body {
-  background-color: var(--secondary-color);
-  display: flex;
-  justify-content: center;
-  font-family: "Poppins", sans-serif;
-}
 .container {
-  background-color: var(--primary-color);
-  width: 28%;
-  margin: 12vh 0px;
-  padding: 15px;
+  background: hsla(340, 80%, 69%, 1);
+  background: linear-gradient(
+    90deg,
+    hsla(340, 80%, 69%, 1) 0%,
+    hsla(15, 93%, 71%, 1) 100%
+  );
+  height: 100vh;
+  width: 100%;
   display: flex;
   justify-content: center;
-  flex-direction: column;
-  border-radius: 5px;
-}
-.addView {
-  display: flex;
   align-items: center;
-  width: 100%;
-  padding: 6px 15px;
-  margin-bottom: 10px;
-}
-#todoInput {
-  font-size: 16px;
-  padding: 10px;
-  border-radius: 0px;
-  width: 100%;
-  border: 1.5px solid var(--secondary-color);
-  outline: none;
-}
-#addBtn {
-  background-color: var(--primary-color);
-  padding: 6px;
-  background-color: var(--secondary-color);
-  border: none;
-  color: var(--primary-color);
-  width: 10vh;
-}
-small {
-  padding: 4px 26px;
-  text-transform: uppercase;
-  font-size: 10px;
-  font-weight: bold;
-  letter-spacing: 1.2px;
-  margin: -8px;
 }
 .card {
-  font-size: 14.5px;
+  background-color: whitesmoke;
+  padding: 15px;
+  width: 30%;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
+}
+h1 {
+  font-size: 22px;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 1.2px;
+}
+.addTodo {
   display: flex;
-  padding: 10px;
-  border-bottom: 1.2px solid grey;
+  justify-content: center;
+  background-color: whitesmoke;
+  border: none;
+}
+#todoInput {
+  background-color: whitesmoke;
+  outline: none;
+  width: 100%;
+  border: none;
+  letter-spacing: 1px;
+  font-size: 16px;
+  margin: 0px 15px;
+  border-bottom: 1.5px solid black;
+  padding: 0px 15px;
+}
+.addBtn {
+  border-radius: 5px;
+  background-color: black;
+  font-size: 35px;
+  padding: 5px;
+  color: whitesmoke;
+  border: none;
+  background: hsla(340, 80%, 69%, 1);
+  background: linear-gradient(
+    90deg,
+    hsla(340, 80%, 69%, 1) 0%,
+    hsla(15, 93%, 71%, 1) 100%
+  );
+}
+.displayTodo {
+  padding: 20px;
+}
+li {
+  margin: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
 }
-.todoValue {
-  padding: 0px 15px;
-  width: 100%;
-  font-size: 15px;
+.todo {
+  display: flex;
+  align-items: center;
 }
-.Todobtns {
-  background-color: var(--primary-color);
-  border: none;
-  margin: 0px 6px;
-}
-.addIcon:hover {
-  color: rgba(255, 255, 255, 0.824);
-}
-.editBtn:hover {
-  color: var(--secondary-color);
-  transition: 0.6s;
+.deleteBtn {
+  font-size: 16px;
+  color: rgba(255, 0, 0, 0.5);
+  cursor: pointer;
 }
 .deleteBtn:hover {
-  color: rgb(199, 2, 2);
-  transition: 0.6s;
+  color: red;
+  transition: 0.7s;
 }
-.todoIcons {
-  font-size: 22.5px !important;
-}
-.addIcon {
-  font-size: 26px !important;
-}
-.noTodoView img {
-  display: block;
-  margin: auto;
-  width: 50%;
-}
-.noTodoView p {
-  text-align: center;
-  margin: 6px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-.clearSec {
+.clearAll {
   display: flex;
+  justify-content: center;
   align-items: center;
-  margin: 12px;
-  justify-content: space-between;
-  border: 1.5px solid black;
-  padding: 10px;
-  background-color: rgb(236, 236, 236);
-  border-radius: 5px;
 }
-.clearTodo {
-  background-color: var(--secondary-color);
-  color: var(--primary-color);
-  padding: 8px;
-  border-radius: 2px;
-  text-transform: uppercase;
-  font-size: 11px;
+.clearAll button {
+  background-color: rgba(255, 0, 0, 0.5);
   border: none;
-  letter-spacing: 0.6px;
+  cursor: pointer;
+  padding: 5px 14px;
+  margin: 5px;
+  border-radius: 4px;
+  color: white;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
 }
-#pendingList {
-  font-weight: 500;
-  font-size: 12.5px;
+.clearAll button:hover {
+  background-color: rgba(255, 0, 0, 0.46);
 }
 @media only screen and (max-width: 600px) {
-  .container {
-    margin-top: 15vh;
-    width: 75%;
+  .card {
+    width: 85%;
+  }
+  li {
+    font-size: 20px;
+  }
+  h1 {
+    font-size: 26px;
   }
   #todoInput {
-    font-size: 14px;
-    padding: 10px;
-  }
-  #addBtn {
-    font-size: 10px;
-    padding: 5px 5px 6px 5px;
-  }
-  .noTodoView p {
-    font-size: 12px;
-  }
-  #pendingList {
-    font-size: 10px;
-  }
-  .clearSec {
-    margin: 5px 0px;
-  }
-  .clearTodo {
-    font-size: 11px;
-  }
-  .deleteBtn {
-    font-size: 20px !important;
+    font-size: 18px;
   }
 }
